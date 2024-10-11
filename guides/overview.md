@@ -12,6 +12,7 @@ If you are unfamiliar with the concepts around dependency injection AppSignal ha
 
 ## Tradeoffs
 - Behaviours have to be defined in their own module
+  
   Due to how Dependable proxies functions calls the implementation of a behaviour and the behaviour itself reside in the same module.
 
 The remainder of this guide will be an getting started guide with getting dependable installed, configured, and then put to use.
