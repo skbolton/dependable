@@ -6,7 +6,7 @@ and designing code with behaviours a better developer experience.
 If you are unfamiliar with the concepts around dependency injection AppSignal has put together a great [blog post](https://blog.appsignal.com/2024/05/21/using-dependency-injection-in-elixir.html) for getting up to speed on the pattern and how it can be implemented in elixir.
 
 ## Benefits
-- Leightweight
+- Lightweight
 - Sensible defaults
 - Keep IDE features such as auto complete for behaviour callbacks
 
@@ -76,15 +76,16 @@ the `FancyEmailProvider` but in testing environments we would want to inject a M
 of the behaviour itself which is the default lookup key used by Dependable.
 
 ```elixir
-# in config.exs
+# in config/config.exs
 config :my_app, MyApp.EmailProvider, Infra.FancyEmailProvider
 
-# in test.exs
+# in config/test.exs
 # this mock would have to be defined in some tool such Mox
 config :my_app, MyApp.EmailProvider, MyApp.EmailProvider.Mock
 ```
 
-Lastly, we can now call into the behaviour in our application logic.
+Lastly, we can now call into the behaviour in our application logic. Notice the function we invoke is on the behaviour module itself.
+Dependable will do the work of looking up the underlying implementor and invoking it.
 
 ```elixir
 defmodule MyApp.Onboarding do
