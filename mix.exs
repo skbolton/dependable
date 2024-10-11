@@ -12,6 +12,7 @@ defmodule Dependable.MixProject do
       start_permanent: Mix.env() == :prod,
       package: package(),
       deps: deps(),
+      docs: docs(),
       source_url: @source_url,
       description: "Lightweight dependency injection using application config"
     ]
@@ -36,6 +37,16 @@ defmodule Dependable.MixProject do
     [
       {:dialyxir, "~> 1.4", only: [:dev, :test], runtime: false},
       {:ex_doc, "~> 0.14", only: :dev, runtime: false}
+    ]
+  end
+
+  defp docs() do
+    [
+      source_ref: @version,
+      main: "overview",
+      extra_section: "GUIDES",
+      formatters: ["html", "epub"],
+      extras: ["guides/overview.md"]
     ]
   end
 end
