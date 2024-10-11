@@ -11,7 +11,7 @@ If you are unfamiliar with the concepts around dependency injection AppSignal ha
 - Keep IDE features such as auto complete for behaviour callbacks
 
 ## Tradeoffs
-- Behaviours have to be defined in their own module. Due to how Dependable proxies functions calls the implementation of a behaviour and the behaviour itself reside in the same module.
+- Behaviours have to be defined in their own module. Due to how Dependable proxies functions calls the implementation of a behaviour and the behaviour itself cannot reside in the same module.
 
 The remainder of this guide will be an getting started guide with getting dependable installed, configured, and then put to use.
 
@@ -36,7 +36,7 @@ end
 ```
 
 Next, Dependable needs a bit of application configuration in order to lookup application config for your implementation modules. Place the name
-of your `:otp_application` (`:my_app` in this example) in your `config/config.exs`.
+of your `:otp_app` (`:my_app` in this example) in your `config/config.exs`.
 
 ```elixir
 config :dependable, :otp_app, :my_app
